@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { ProductsIndex } from './ProductsIndex'
+import { ProductsNew } from './ProductsNew'
 import {useState, useEffect} from 'react'
 
 export function Content() {  
@@ -19,6 +20,7 @@ export function Content() {
   return (
     <div>
       <h1>Welcome to React!</h1>
+      <ProductsNew />
       {/* <button onClick={handleIndexProducts}>Get products</button> */}
       <ProductsIndex products={products}/>
     </div>
