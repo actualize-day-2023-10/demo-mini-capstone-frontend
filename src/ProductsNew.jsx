@@ -1,13 +1,10 @@
 import axios from "axios"
-export function ProductsNew() {
-  const createProduct = (event) => {
+export function ProductsNew(props) {
+  const createProduct = (event) => {    
     event.preventDefault();
-    const params = new FormData(event.target)
-    axios.post("http://localhost:3000/products.json", params).then(response => {
-      console.log(response.data);
-      
-      
-    })
+    const params = new FormData(event.target)    
+    props.onCreateProduct(params, () => {event.target.reset()})
+    
     console.log('creating product...')
   }
   

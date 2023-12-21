@@ -14,15 +14,25 @@ export function Content() {
     })
   };
 
+  const handleCreateProduct = (params, successCallback) => {
+    console.log('creating product')
+    axios.post("http://localhost:3000/products.json", params).then(response => {
+      console.log(response.data);  
+      // reset the products array to add the new product    // 
+      setProducts([...products, response.data])
+      successCallback()
+    })
+  }
+
   // handleIndexProducts()
   useEffect(handleIndexProducts, [])
   
   return (
     <div>
       <h1>Welcome to React!</h1>
-      <ProductsNew />
+      <ProductsNew onCreateProduct={handleCreateProduct}/>
       {/* <button onClick={handleIndexProducts}>Get products</button> */}
-      <ProductsIndex products={products}/>
+      <ProductsIndex products={products} />
     </div>
   )
 }
