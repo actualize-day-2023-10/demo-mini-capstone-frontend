@@ -49,18 +49,18 @@ export function Content() {
   useEffect(handleIndexProducts, [])
   
   return (
-    <div>
-      <h1>Welcome to React!</h1>
+    <div>     
       <Routes>
         <Route path="/signup" element={<Signup />} />
-        <Route path="/Login" element={<Login />} />
-
+        <Route path="/login" element={<Login />} />
+        <Route path="/products/new" element={<ProductsNew onCreateProduct={handleCreateProduct}/>} />
+        <Route path="/" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} />
       </Routes>
       
      
-      <ProductsNew onCreateProduct={handleCreateProduct}/>
+      
       {/* <button onClick={handleIndexProducts}>Get products</button> */}
-      <ProductsIndex products={products} onShowProduct={handleShowProduct} />
+      
       <Modal show={isProductsShowVisible} onClose={handleClose}>
         <ProductsShow product={currentProduct}/>
       </Modal>
