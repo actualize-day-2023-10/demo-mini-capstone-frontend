@@ -7,6 +7,7 @@ export function ProductsIndex(props) {
         <div>
           <p>name: {product.name}</p>
           <p>price:  {product.price}</p>
+          <button onClick={() => props.onShowProduct(product)}>More info</button>
           <hr />
         </div>
       ))}
