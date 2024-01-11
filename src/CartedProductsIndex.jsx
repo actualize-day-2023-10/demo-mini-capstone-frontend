@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 export function CartedProductsIndex() {
   const [cartedProducts, setCartedProducts] = useState([])
@@ -11,20 +11,32 @@ export function CartedProductsIndex() {
       setCartedProducts(response.data)
     })
   }
+
+  const createOrder = () => {
+    console.log('creating order....')
+    axios.post('http://localhost:3000/orders.json').then(response => {
+      console.log(response.data);
+    })
+  }
+
+  // getCartedProducts()
+  // 235
+  useEffect(getCartedProducts, [])
   
   return (
     <div>
       <p>This is the shopping cart</p>
-      <button onClick={getCartedProducts}>Get data on the shopping cart</button>
+      
       {cartedProducts.map(cartedProduct => (
         <div key={cartedProduct.id}>
           {/* <p>{JSON.stringify(cartedProduct)}</p> */}
           <p>name: {cartedProduct.product.name}</p>
+          <p>price: {cartedProduct.product.price}</p>
           <p>quantity: {cartedProduct.quantity}</p>
           <hr />
-        </div>
-        
+        </div>        
       ))}
+      <p><button onClick={createOrder}>Buy</button></p>
     </div>
   )
 }
