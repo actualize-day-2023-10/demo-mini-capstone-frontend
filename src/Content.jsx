@@ -3,7 +3,11 @@ import { ProductsIndex } from './ProductsIndex'
 import { ProductsNew } from './ProductsNew'
 import { Modal } from './Modal'
 import { ProductsShow } from './ProductsShow'
+import { Signup } from './Signup'
+import { Login } from './Login'
 import {useState, useEffect} from 'react'
+import { Routes, Route } from "react-router-dom";
+
 
 export function Content() {  
   const [products, setProducts] = useState([])
@@ -47,6 +51,13 @@ export function Content() {
   return (
     <div>
       <h1>Welcome to React!</h1>
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/Login" element={<Login />} />
+
+      </Routes>
+      
+     
       <ProductsNew onCreateProduct={handleCreateProduct}/>
       {/* <button onClick={handleIndexProducts}>Get products</button> */}
       <ProductsIndex products={products} onShowProduct={handleShowProduct} />
