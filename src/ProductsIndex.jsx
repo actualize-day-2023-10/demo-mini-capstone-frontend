@@ -4,7 +4,7 @@ export function ProductsIndex(props) {
     <div>
       <p>in products index</p>
       {props.products.map(product => (
-        <div>
+        <div key={product.id}>
           <p>name: {product.name}</p>
           <p>price:  {product.price}</p>
           <button onClick={() => props.onShowProduct(product)}>More info</button>

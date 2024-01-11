@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { ProductsIndex } from './ProductsIndex'
+import { CartedProductsIndex } from './CartedProductsIndex'
 import { ProductsNew } from './ProductsNew'
 import { Modal } from './Modal'
 import { ProductsShow } from './ProductsShow'
@@ -55,6 +56,8 @@ export function Content() {
         <Route path="/login" element={<Login />} />
         <Route path="/products/new" element={<ProductsNew onCreateProduct={handleCreateProduct}/>} />
         <Route path="/" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} />
+        <Route path="/cart" element={<CartedProductsIndex />} />
+        {/* <Route path="/products" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} /> */}
       </Routes>
       
      
