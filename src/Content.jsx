@@ -4,6 +4,7 @@ import { CartedProductsIndex } from './CartedProductsIndex'
 import { ProductsNew } from './ProductsNew'
 import { Modal } from './Modal'
 import { ProductsShow } from './ProductsShow'
+import { OrdersIndex } from './OrdersIndex'
 import { Signup } from './Signup'
 import { Login } from './Login'
 import {useState, useEffect} from 'react'
@@ -58,6 +59,7 @@ export function Content() {
         <Route path="/" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} />
         <Route path="/cart" element={<CartedProductsIndex />} />
         {/* <Route path="/products" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} /> */}
+        <Route path="/orders" element={<OrdersIndex />} />
       </Routes>
       
      
