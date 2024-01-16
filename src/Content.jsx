@@ -4,6 +4,7 @@ import { CartedProductsIndex } from './CartedProductsIndex'
 import { ProductsNew } from './ProductsNew'
 import { Modal } from './Modal'
 import { ProductsShow } from './ProductsShow'
+import { OrdersShow } from './OrdersShow'
 import { OrdersIndex } from './OrdersIndex'
 import { Signup } from './Signup'
 import { Login } from './Login'
@@ -19,7 +20,7 @@ export function Content() {
 
   const handleIndexProducts = () => {
     console.log('get data from rails')
-    axios.get("http://localhost:3000/products.json").then(response => {
+    axios.get("http://localhost:3010/products.json").then(response => {
       // console.log(response.data)
       setProducts(response.data)
     })
@@ -27,7 +28,7 @@ export function Content() {
 
   const handleCreateProduct = (params, successCallback) => {
     console.log('creating product')
-    axios.post("http://localhost:3000/products.json", params).then(response => {
+    axios.post("http://localhost:3010/products.json", params).then(response => {
       console.log(response.data);  
       // reset the products array to add the new product    // 
       setProducts([...products, response.data])
@@ -60,6 +61,8 @@ export function Content() {
         <Route path="/cart" element={<CartedProductsIndex />} />
         {/* <Route path="/products" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} /> */}
         <Route path="/orders" element={<OrdersIndex />} />
+        <Route path="/orders/:id" element={<OrdersShow />} />
+
       </Routes>
       
      

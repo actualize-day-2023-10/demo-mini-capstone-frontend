@@ -6,7 +6,7 @@ export function OrdersIndex() {
   
   const getOrders = () => {
     console.log('getting orders');
-    axios.get("http://localhost:3000/orders.json").then(response => {
+    axios.get("http://localhost:3010/orders.json").then(response => {
       console.log(response.data);
       setOrders(response.data)
     })

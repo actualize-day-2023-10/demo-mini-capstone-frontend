@@ -14,7 +14,7 @@ export function ProductsNew(props) {
   // i need products index here to show in my dropdown
   const productsIndex = () => {
     console.log('hello from products index')
-    axios.get('http://localhost:3000/suppliers.json').then(response => {
+    axios.get('http://localhost:3010/suppliers.json').then(response => {
       console.log(response.data);
       setSuppliers(response.data)
     })
