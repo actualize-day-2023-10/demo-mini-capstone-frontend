@@ -70,7 +70,7 @@ export function Content() {
       {/* <button onClick={handleIndexProducts}>Get products</button> */}
       
       <Modal show={isProductsShowVisible} onClose={handleClose}>
-        <ProductsShow product={currentProduct}/>
+        <ProductsShow product={currentProduct} onClose={handleClose} />
       </Modal>
     </div>
   )
