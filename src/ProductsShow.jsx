@@ -8,6 +8,7 @@ export function ProductsShow(props) {
     axios.post('http://localhost:3010/carted_products.json', params).then(response => {
       console.log(response.data)
       props.onClose()
+      window.location.href = "/cart"
     })
   }
   
