@@ -19,19 +19,19 @@ export function CartedProductsIndex() {
       console.log(response.data);
       
       
-      let stripe = Stripe("sk_test_51G6hpUIAOtZSo9ug9oJojU7R6RQzqq9INPjxfAxlUoid6JS2YSGTuA3sKi8fvfBs8jlCiQKYhEpjM59bdEC6Qq2N00oXH48BCq");
+      let stripe = Stripe(import.meta.env.VITE_STRIPE_KEY);
       
       stripe.checkout.sessions.create({        
-        mode: 'devleopment',
+        mode: 'payment',
         payment_method_types: [
           'card',
         ],
-        success_url: `http://localhost:5173/admin/stripe`,
-        cancel_url: `http://localhost:5173/admin/stripe`,
+        success_url: `http://localhost:5173/`,
+        cancel_url: `http://localhost:5173/`,
         line_items: [ // all arguments are required
           {
             price_data: {
-              unit_amount: 4000,
+              unit_amount: response.data.total * 100,
               currency: 'usd',
               product_data: {
                 name: 'Test Product'
@@ -40,9 +40,13 @@ export function CartedProductsIndex() {
             quantity: 1,
           },
         ],
+      }).then(session => {
+        console.log('printing out the session')
+        console.log(session.url)
+        window.location.href = session.url
       })
       // window.location.href = `/orders/${response.data.id}`
-      window.location.href = "https://buy.stripe.com/test_8wMdTCetX7FxdNe28a"
+      // window.location.href = "https://buy.stripe.com/test_8wMdTCetX7FxdNe28a"
     })
   }
 
