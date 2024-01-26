@@ -2,7 +2,9 @@ export function ProductsIndex(props) {
   console.log(props.products)
   return (
     <div>
-      <p>in products index</p>
+
+      {/* <p style={{fontSize: '40px', textDecoration: 'underline', fontWeight: 600 }}>in products index</p> */}
+      <p className="text-4xl font-bold underline">in products index</p>
       {props.products.map(product => (
         <div key={product.id}>
           <p>name: {product.name}</p>
