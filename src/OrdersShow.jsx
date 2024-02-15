@@ -14,7 +14,7 @@ export function OrdersShow() {
     // get the 16 or other # from the url
     // console.log(params);
     console.log('hello from get prder')    
-    axios.get(`http://localhost:3010/orders/${params.id}.json`).then(response => {
+    axios.get(`/orders/${params.id}.json`).then(response => {
       console.log(response.data);
       setOrder(response.data)
     })

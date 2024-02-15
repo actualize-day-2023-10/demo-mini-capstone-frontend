@@ -20,7 +20,7 @@ export function Content() {
 
   const handleIndexProducts = () => {
     console.log('get data from rails')
-    axios.get("http://localhost:3010/products.json").then(response => {
+    axios.get("/products.json").then(response => {
       // console.log(response.data)
       setProducts(response.data)
     })
@@ -28,7 +28,7 @@ export function Content() {
 
   const handleCreateProduct = (params, successCallback) => {
     console.log('creating product')
-    axios.post("http://localhost:3010/products.json", params).then(response => {
+    axios.post("/products.json", params).then(response => {
       console.log(response.data);  
       // reset the products array to add the new product    // 
       setProducts([...products, response.data])
